@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-import { Row, Col, Form, Button } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
+import { Row, Col, Form, Button, Card } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import FileBase from 'react-file-base64';
-import { savePost } from '../Redux/actions/postActions'
-import axios from 'axios'
-import { store } from '../Redux/store'
+import { getPosts, savePost } from '../Redux/actions/postActions'
+import Posts from './Posts'
 
 export const HomeContent = () => {
     const [postData, setpostData] = useState({ creator: '', title: '', message: '', tags: '', selectedFile: '' })
@@ -14,12 +13,16 @@ export const HomeContent = () => {
         e.preventDefault()
         dispatch(savePost(postData))
     }
+
+    useEffect(() => {
+        dispatch(getPosts())
+    }, [dispatch])
+
     return (
 
         <Row>
-            <Col lg={6} md="auto">1 of 2</Col>
-            <Col lg={6} md="auto">
 
+            <Col lg={6} md="auto">
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Creator</Form.Label>
@@ -47,6 +50,10 @@ export const HomeContent = () => {
                     </Button>
                 </Form>
             </Col>
+            <Col lg={6} md="auto">
+                <Posts />
+            </Col>
+
         </Row>
     )
 }

@@ -8,7 +8,8 @@ export default function posts(state = [], action) {
             return action.payload
         case 'SAVE_POSTS':
             return [...state, action.payload]
-
+        case 'DELETE_POST':
+            return state.filter(p => p !== action.payload)
         default:
             return state
     }
