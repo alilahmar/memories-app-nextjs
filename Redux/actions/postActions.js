@@ -32,8 +32,6 @@ export const getPost = () => async (dispatch) => {
     }
 }
 
-
-
 export const savePost = (postData) => async (dispatch) => {
 
     try {
@@ -50,6 +48,20 @@ export const savePost = (postData) => async (dispatch) => {
     }
 
 }
+
+export const addComment = (postId, comment) => async (dispatch) => {
+
+    try {
+        const { data } = await axios.post(`http://localhost:5000/api/posts/${postId}/comments`, { body: comment })
+
+
+    } catch (err) {
+        console.log(err.message)
+    }
+
+}
+
+
 
 
 export const deletePost = (id) => async (dispatch) => {

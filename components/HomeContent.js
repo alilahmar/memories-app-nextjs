@@ -22,7 +22,7 @@ export const HomeContent = () => {
 
         <Row>
 
-            <Col lg={6} md="auto">
+            <Col lg={4} md="auto">
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="exampleForm.ControlInput1">
                         <Form.Label>Creator</Form.Label>
@@ -50,7 +50,7 @@ export const HomeContent = () => {
                     </Button>
                 </Form>
             </Col>
-            <Col lg={6} md="auto">
+            <Col lg={8} md="auto">
                 <Posts />
             </Col>
 

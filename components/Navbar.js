@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { Navbar } from 'react-bootstrap'
 
@@ -5,7 +6,9 @@ export const Nav = () => {
     return (
         <div>
             <Navbar>
-                <Navbar.Brand href="#home">Memories</Navbar.Brand>
+                <Link href="/">
+                    <Navbar.Brand href="">Memories</Navbar.Brand>
+                </Link>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>

@@ -10,6 +10,8 @@ export default function posts(state = [], action) {
             return [...state, action.payload]
         case 'DELETE_POST':
             return state.filter(p => p !== action.payload)
+        case 'ADD_COMMENT':
+            return [...state, action.payload]
         default:
             return state
     }
